@@ -1,0 +1,3 @@
+SA9;Mary;Howe;Assistant;12000
+SG5;Susan;Brand;Manager;32767
+SG14;David;Ford;Supervisor;18000

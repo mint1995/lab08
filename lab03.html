@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+function correctData(){
+	var firstName=getCookie("firstName");
+	var lastName=getCookie("lastName");
+	if(firstName != "" && lastName != ""){
+    	return true;
+    }
+    else{
+    	return false;
+    }
+}
+
+function saveFunc() {
+	var name = document.getElementById("firstName").value;
+    setCookie("firstName",name,30);
+	name = document.getElementById("lastName").value;
+    setCookie("lastName",name,30);
+    name = document.getElementById("houseNum").value;
+    setCookie("houseNum",name,30);
+    name = document.getElementById("street").value;
+    setCookie("street",name,30);
+    name = document.getElementById("city").value;
+    setCookie("city",name,30);
+    name = document.getElementById("provide").value;
+    setCookie("provide",name,30);
+    name = document.getElementById("zipcode").value;
+    setCookie("zipcode",name,30);
+    name = document.getElementById("phoneNum").value;
+    setCookie("phoneNum",name,30);
+    name = document.getElementById("cellNum").value;
+    setCookie("cellNum",name,30);
+    name = document.getElementById("birthday").value;
+    setCookie("birthday",name,30);
+    name = document.getElementById("citizenNum").value;
+    setCookie("citizenNum",name,30);
+    name = document.getElementById("zodiacSign").value;
+    setCookie("zodiacSign",name,30);
+    name = document.getElementById("zodiacYear").value;
+    setCookie("zodiacYear",name,30);
+    name = document.getElementById("week").value;
+    setCookie("week",name,30);
+}
+
+function clearFunc() {
+	document.getElementById("firstName").value = "";
+	document.getElementById("lastName").value = "";
+	document.getElementById("houseNum").value = "";
+	document.getElementById("street").value = "";
+	document.getElementById("city").value = "";
+	document.getElementById("provide").value = "";
+	document.getElementById("zipcode").value = "";
+	document.getElementById("phoneNum").value = "+662-xxx-xxx";
+	document.getElementById("cellNum").value = "+66xx-xxx-xxxx";
+	document.getElementById("birthday").value = "DD/MM/YYYY";
+	document.getElementById("citizenNum").value = "";
+	document.getElementById("zodiacSign").value = "Aries";
+	document.getElementById("zodiacYear").value = "Rat";
+	document.getElementById("week").value = "Monday";
+}
+
+function submitFunc() {
+	if(correctData()){
+   		alert("Thank! "+getCookie("firstName")+" "+getCookie("lastName")+"\nSuccessful submit your data.");
+        window.location.reload();
+    }
+    else{
+    	alert("please fill your name and 'Save' before submit")
+    }
+}
+
+function clearThis(target){
+    target.value= "";
+}
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+function checkCookie() {
+	alert("not work on google chrome.");
+   	var user=getCookie("firstName");
+    if (user != "") {
+        document.getElementById("firstName").value = user;
+    }
+    user=getCookie("lastName");
+    if (user != "") {
+    	document.getElementById("lastName").value = user;
+    }
+    user=getCookie("houseNum");
+    if (user != "") {
+    	document.getElementById("houseNum").value = user;
+    }
+    user=getCookie("street");
+    if (user != "") {
+    	document.getElementById("street").value = user;
+    }
+    user=getCookie("city");
+    if (user != "") {
+    	document.getElementById("city").value = user;
+    }
+    user=getCookie("provide");
+    if (user != "") {
+    	document.getElementById("provide").value = user;
+    }
+    user=getCookie("zipcode");
+    if (user != "") {
+    	document.getElementById("zipcode").value = user;
+    }
+    user=getCookie("phoneNum");
+    if (user != "") {
+    	document.getElementById("phoneNum").value = user;
+    }
+    user=getCookie("cellNum");
+    if (user != "") {
+    	document.getElementById("cellNum").value = user;
+    }
+    user=getCookie("birthday");
+    if (user != "") {
+    	document.getElementById("birthday").value = user;
+    }
+    user=getCookie("citizenNum");
+    if (user != "") {
+    	document.getElementById("citizenNum").value = user;
+    }
+    user=getCookie("zodiacSign");
+    if (user != "") {
+    	document.getElementById("zodiacSign").value = user;
+    }
+    user=getCookie("zodiacYear");
+    if (user != "") {
+    	document.getElementById("zodiacYear").value = user;
+    }
+    user=getCookie("week");
+    if (user != "") {
+    	document.getElementById("week").value = user;
+    }
+}
+
+
+</script>
+</head>
+
+<body onload="checkCookie()">
+    
+	First name:<input type="text" id="firstName" value="">      
+    Last name:<input type="text" id="lastName" value="">
+<p>Address:</p>
+    
+    <p>House number:
+    <input type="text" id="houseNum" value=""/>
+  	</p>
+    <p>Street:
+    <input type="text" id="street" value=""/>
+
+    </p>
+    <p>City:
+    <input type="text" id="city" value="">
+
+</p>
+    <p>Provide:
+    <input type="text" id="provide" value="">
+
+    </p>
+    <p>Zipcode:
+    <input type="text" id="zipcode" value="">
+
+    </p>
+<p>Phone number:
+  <input type="text" id="phoneNum" value="+662-xxx-xxx" onfocus="clearThis(this)">
+    Cell phone number:<input type="text" id="cellNum" value=			"+66xx-xxx-xxxx" onfocus="clearThis(this)"/>
+
+    </p>
+    
+    <p>Birthday:
+    <input type="text" id="birthday" value="DD/MM/YYYY" onfocus="clearThis(this)">
+    </p>
+    
+  	<p>Citizenship number:<input type="text" id="citizenNum" value="">
+    </p>
+    
+    <p>
+    Zodiac Sign:
+	<select id="zodiacSign">
+  		<option value="Aries">Aries</option>
+  		<option value="Taurus">Taurus</option>
+  		<option value="Gemini">Gemini</option>
+  		<option value="Cancer">Cancer</option>
+        <option value="Leo">Leo</option>
+        <option value="Virgo">Virgo</option>
+        <option value="Libra">Libra</option>
+        <option value="Scorpio">Scorpio</option>
+        <option value="Sagittarius">Sagittarius</option>
+        <option value="Capricorn">Capricorn</option>
+        <option value="Aquarius">Aquarius</option>
+        <option value="Pisces">Pisces</option>
+	</select>
+	Zodiac Year:
+	<select id="zodiacYear">
+  		<option value="Rat">Rat</option>
+  		<option value="Ox">Ox</option>
+  		<option value="Tiger">Tiger</option>
+  		<option value="Rabbit">Rabbit</option>
+        <option value="Dragon">Dragon</option>
+        <option value="Snake">Snake</option>
+        <option value="Horse">Horse</option>
+        <option value="Goat">Goat</option>
+        <option value="Monkey">Monkey</option>
+        <option value="Rooster">Rooster</option>
+        <option value="Dog">Dog</option>
+        <option value="Pig">Pig</option>
+	</select>
+    </p>
+    Birth day of week:
+	<select id="week">
+		<option value="Monday">Monday</option>
+  		<option value="Tuesday">Tuesday</option>
+  		<option value="Wednesday">Wednesday</option>
+  		<option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+        <option value="Sunday">Sunday</option>
+	</select>
+    <p>&nbsp; </p>
+    <button onclick="saveFunc()">Save</button>
+    <button onclick="clearFunc()">clear</button>
+	<button onclick="submitFunc()">Submit</button>
+   
+
+</body>
+</html>
